@@ -32,15 +32,13 @@ function CabinTable() {
   const {
     isLoading,
     data: cabins,
-    error,
+    // error,
   } = useQuery({
     queryKey: ["cabins"],
     queryFn: getCabins,
   });
 
   if (isLoading) return <Spinner />;
-
-  console.log(Table, TableHeader, cabins, error);
 
   return (
     <Table role="table">
