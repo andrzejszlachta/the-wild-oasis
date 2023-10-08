@@ -54,7 +54,6 @@ const Footer = styled.footer`
   }
 `;
 
-// eslint-disable-next-line no-unused-vars
 const Empty = styled.p`
   font-size: 1.6rem;
   font-weight: 500;
@@ -87,13 +86,9 @@ function Row({ children }) {
     </StyledRow>
   );
 }
-function Body({ children }) {
-  const { columns } = useContext(TableContext);
-  return (
-    <StyledBody role="row" columns={columns}>
-      {children}
-    </StyledBody>
-  );
+function Body({ data, render }) {
+  if (!data.length) return <Empty>No data to show at the moment</Empty>;
+  return <StyledBody>{data.map(render)}</StyledBody>;
 }
 
 Table.Header = Header;
