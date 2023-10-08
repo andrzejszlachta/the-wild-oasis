@@ -86,7 +86,7 @@ function Window({ children, name, onClose }) {
   return createPortal(
     <Overlay>
       <StyledModal ref={ref}>
-        <Button onClick={onClose}>
+        <Button onClick={close}>
           <HiXMark></HiXMark>
         </Button>
         <div>{cloneElement(children, { onCloseModal: close })}</div>
